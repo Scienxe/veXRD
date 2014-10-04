@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>veXRD: Drag-n-drop graphing</title>
+  <link rel="stylesheet" href="css/vexrd.css">
+</head>
+<body>
+  <div id="graphPane">
+    <div id="welcome">
+      <h1>veXRD</h1>
+      <h3>Vector graphing for X-Ray Diffraction data</h3>
+      <p>Drop XRD data files and ICDD XML files here to graph</p>
+      <br>
+      <p><a href="about.html" alt="information about veXRD" class="fakeButton">about veXRD</a></p>
+    </div>
+  </div>
+  <div id="controlPane" class="noPrint">
+    <h4>Exported Graph:</h4>
+    <div id="exportDiv" class="controlDiv"></div>
+    <h4>Plots:</h4>
+    <div id="plotListDiv" class="controlDiv"></div>
+    <h4>Index Strips:</h4>
+    <div id="stripListDiv" class="controlDiv"></div>
+    <h4>Preferences:</h4>
+    <div id="prefsDiv" class="controlDiv">
+      <div>
+        <label for="aspectRatio">Aspect Ratio: </label>
+        <div class="aspectInputs">
+          <select id="aspectRatio" class="selectBox">
+            <option value="un">Unconstrained</option>
+            <option value="16:9">16:9</option>
+            <option value="16:10">16:10</option>
+            <option value="4:3">4:3</option>
+            <option value="1:1">1:1</option>
+            <option value="custom">Custom</option>
+          </select>
+          <input id="customAspect" type="text" size="6" placeholder="16:9" class="inputBox"></input>
+        </div>
+      </div>
+      <div class="subPref">
+        <form onsubmit="return false" oninput="fontSizeOut.value = fontSizeIn.valueAsNumber">
+          <label for="fontSizeIn">Font Size: </label>
+          <input id="fontSizeIn" type="range" min="20" max="60" step="5" value="40">
+          <output for="fontSizeIn" id="fontSizeOut">40</output>
+        </form>
+        <form onsubmit="return false" oninput="lineWeightOut.value = lineWeightIn.valueAsNumber">
+          <label for="lineWeightIn">Line Weight: </label>
+          <input id="lineWeightIn" type="range" min="1" max="5" value="1">
+          <output for="lineWeightIn" id="lineWeightOut">1</output>
+        </form>
+      </div>
+      <div class="subPref">
+        Graph bounds:
+        <div class="subSubPref">
+          2&theta; min: <input id="xMinInput" type="text" size="5" placeholder="0" class="inputBox"></input>
+          2&theta; max: <input id="xMaxInput" type="text" size="5" placeholder="0" class="inputBox"></input>
+        </div>
+      </div>
+      <div class="subPref">
+        X-axis tick increments:
+        <div class="subSubPref">
+          major: <input id="xMajorInput" type="text" size="5" placeholder="10" class="inputBox"></input>
+          minor: <input id="xMinorInput" type="text" size="5" placeholder="1" class="inputBox"></input>
+        </div>
+      </div>
+      <div class="subPref">
+        <form id="axisChooser" name="axisChooser">
+          Plot Axis:<br>
+          <div class="subSubPref">
+            <input name="plotAxis" id="linearPlotBox" type="radio" value="linear" checked><label for="linearPlotBox">linear</label><br>
+            <input name="plotAxis" id="semiLogPlotBox" type="radio" value="semiLog"><label for="semiLogPlotBox">semi-log</label>
+          </div>
+          Index Strip Axis:<br>
+          <div class="subSubPref">
+            <input name="stripAxis" id="linearStripBox" type="radio" value="linear" checked><label for="linearStripBox">linear</label><br>
+            <input name="stripAxis" id="semiLogStripBox" type="radio" value="semiLog"><label for="semiLogStripBox">semi-log</label><br>
+            <input name="stripAxis" id="fullHeightStripBox" type="radio" value="fullHeight"><label for="fullHeightStripBox">full height</label>
+          </div>
+        </form>
+      </div>
+      <div class="subPref">
+        <form id="hideStuff" name="hideStuff">
+          <input name="displayYaxis" id="displayYaxis" type="checkbox" checked><label for"displayYaxis">Display y-axis</label><br>
+          <input name="displayLegend" id="displayLegend" type="checkbox" checked><label for"displayLegend">Display Legend</label>
+        </form>
+      </div>
+    </div>
+    <h4>Messages:</h4>
+    <div id="messageDiv" class="controlDiv"></div>
+  </div>
+</body>
+<script src="js/alchemy.x2j.js"></script>
+<script src="js/vexrd.js"></script>
+</html>
