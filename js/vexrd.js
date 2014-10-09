@@ -756,7 +756,7 @@ alchemy.vexrd = ( function( vexrd ) {
                 plots.push( plot );
               }
             }
-          } else if( plots.length === 9 ) {
+          } else if( plots.length >= 9 ) {
             msgOut( 'Too many XRD plots: max = 9' );
           }
           loadCounter++;
