@@ -217,7 +217,10 @@ alchemy.vexrd = ( function( vexrd ) {
       shiftUp.title = 'Shift Up';
       shiftUp.addEventListener( 'click', ( function( z, e ) {
         return function() {
-          plots[ z ].yOffset = plots[ z ].yOffset <= -0.5 * indexStripSize ? -0.5 * indexStripSize : plots[ z ].yOffset - 1;
+          plots[ z ].yOffset -= 5;
+          if( plots[ z ].yOffset < -0.5 * indexStripSize ) {
+            plots[ z ].yOffset = -0.5 * indexStripSize
+          }
           redraw();
         };
       }( idx ) ) );
@@ -228,7 +231,10 @@ alchemy.vexrd = ( function( vexrd ) {
       shiftDown.title = 'Shift Down';
       shiftDown.addEventListener( 'click', ( function( z, e ) {
         return function() {
-          plots[ z ].yOffset = plots[ z ].yOffset >= 0.5 * indexStripSize ? 0.5 * indexStripSize : plots[ z ].yOffset + 1;
+          plots[ z ].yOffset += 5;
+          if( plots[ z ].yOffset > 0.5 * indexStripSize ) {
+            plots[ z ].yOffset = 0.5 * indexStripSize
+          }
           redraw();
         };
       }( idx ) ) );
