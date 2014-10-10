@@ -5,11 +5,20 @@
   <link rel="stylesheet" href="css/vexrd.css">
 </head>
 <body>
-<div>
+<div style="width:800px; margin:0px auto">
   <h1>veXRD</h1>
   <h3>Vector graphing for X-Ray Diffraction data</h3>
   <p>Copyright &copy;2014 Thomas C. Mangan</p>
-  <p>Contact: <a href="mailto:tmangan@gmail.com">email</a>
+  <p><h3>Contact:</h3> <a href="mailto:tmangan@gmail.com">email</a></p>
+  <p><h3>Tools:</h3>
+    The ICDD Renamer Python script renames ICDD .xml files to include their chemical formulas, so it's easier to know which files to drag into veXRD. Be sure to work with copies of the .xml files so the originals remain safe in case of problems.<br>
+    <ol>
+      <li>Make sure Python is installed on your computer.</li>
+      <li>Copy all ICDD .xml files you want renamed into a clean directory with nothing else in it.</li>
+      <li>Download the <a href="py/icddRenamer.py">renamer python script</a> into the directory with your .xml files.</li>
+      <li>From a command prompt, run 'python icddRenamer.py' and wait for it to complete.</li>
+    </ol>
+  </p>
   <h3>Known Issues:</h3>
   <p>Special characters do not export properly to the .pdf file.</p>
 </div>

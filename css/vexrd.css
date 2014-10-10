@@ -52,7 +52,7 @@ ul {
   margin: 0px 0px 0px -1em;
   list-style-type: none;
 }
-li {
+ul li {
   margin-left: -2em;
 }
 a {
